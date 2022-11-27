@@ -1,11 +1,9 @@
-// we can access the pwd function and store it in a variable like so
+// getting functions from other files:
 const pwdFunc = require('./pwd');
+const lsFunc = require('./ls');
 
 // output a prompt
 process.stdout.write('prompt > ');
-
-// import the pwdFunc from pwd.js
-// createRequire { pwdFunc } from "./pwd";
 
 // the stdin 'data' event fires after a user types in a line
 process.stdin.on('data', (data) => {
@@ -13,6 +11,8 @@ process.stdin.on('data', (data) => {
 
     if (cmd == 'pwd'){
         pwdFunc();
+    } else if (cmd == 'ls') {
+        lsFunc();
     } else {
         process.stdout.write('You typed: ' + cmd);
         process.stdout.write('\nprompt > ');
